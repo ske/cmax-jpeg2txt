@@ -1,0 +1,9 @@
+version: '3'
+services:
+  cmax-jpeg2txt:
+    stop_signal: SIGTERM
+    image: bskerlecz/ubuntu-cmax-server:1.0.0
+    volumes:
+      - ./:/app:delegated
+    ports:
+      - '8080:8080'
