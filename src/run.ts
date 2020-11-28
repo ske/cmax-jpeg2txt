@@ -10,14 +10,20 @@ try {
         workdir: '/tmp',
         port: 8080
     });
-    process.on('SIGINT', async () => {
-        logger.info("SIGINT received, shutting down.");
-        await jobServer.shutdown();
-    });
+
+    const sighandler = async () => {
+	logger.info("Stop signal received, shutting down.");
+	await jobServer.shutdown();
+	process.exit(0);
+    };
+
+    process.on('SIGINT', sighandler);
+    process.on('SIGHUP', sighandler);
+    process.on('SIGTERM', sighandler);
 
     jobServer.registerWorkerType(Jpeg2TxtWorker);
 
-    Promise.all([jobServer.start()]).then(() => {
+    jobServer.start().then(() => {
         logger.info("started");
     }).catch((e) => {
         logger.error("cannot start", e);

@@ -1,12 +1,12 @@
 {
   "name": "cmax-jpeg2txt",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "JPEG2TXT service",
   "main": "dist/run.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "server": "node dist/run.js"
+    "start": "node dist/run.js"
   },
   "author": "bskerlecz@gmail.com",
   "license": "MIT",
