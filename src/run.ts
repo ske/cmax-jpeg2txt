@@ -2,7 +2,7 @@ import {Logger} from "tslog";
 import {Server} from "ts-jobserver-simple/dist/core/Server";
 import {Jpeg2TxtWorker} from "./Jpeg2TxtWorker";
 
-const logger = new Logger({name: "pdf2jpeg-job-server"});
+const logger = new Logger({name: "jpeg2txt-job-server"});
 try {
     logger.info("starting");
     const jobServer = new Server({
